@@ -1,0 +1,72 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.left-panel {
+  flex: 2.5;
+  border: 2px solid #d3d3d3;
+  border-radius: 10px;
+  background: 
+     linear-gradient(to bottom, #9b59b6, #8e44ad);
+color: black;
+}
+
+.right-panel {
+  flex: 7.5;
+  border: 2px solid #d3d3d3;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 10px;
+  background: 
+ linear-gradient(to bottom, rgb(229, 195, 243), rgb(142, 68, 173));
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    flex: none;
+    width: 100%;
+    margin: 0 0 15px 0;
+  }
+
+  .right-panel {
+    margin: 0;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .app-container {
+    flex-direction: row;
+  }
+
+  .left-panel {
+    flex: 4;
+  }
+
+  .right-panel {
+    flex: 6;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .app-container {
+    flex-direction: row;
+  }
+
+  .left-panel {
+    flex: 2.5;
+  }
+
+  .right-panel {
+    flex: 7.5;
+  }
+}
