@@ -69,83 +69,81 @@ const Page2 = ({ tasks, setTasks, searchTerm }) => {
   };
 
   return (
-    <>
-      <div className="page2-container">
-        <h1 className="page2-title">TO DO LIST</h1>
+    <div className="page2-container">
+      <h1 className="page2-title">TO DO LIST</h1>
 
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Enter a task"
-          className="task-input"
-        />
-        <Button1
-          text={<FaPlus />}
-          fontSize={"10px"}
-          margin={"15px"}
-          border={"2px solid black"}
-          onClick={handleAddTask}
-        />
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Enter a task"
+        className="task-input"
+      />
+      <Button1
+        text={<FaPlus />}
+        fontSize={"10px"}
+        margin={"15px"}
+        border={"2px solid black"}
+        onClick={handleAddTask}
+      />
 
-        <ul>
-          {filteredTasks.map((task, index) => (
-            <li key={index} className="task-item">
-              <input
-                type="checkbox"
-                checked={task.completed}
-                onChange={() => handleToggle(index)}
-              />
+      <ul className="task-list">
+        {filteredTasks.map((task, index) => (
+          <li key={index} className="task-item">
+            <input
+              type="checkbox"
+              checked={task.completed}
+              onChange={() => handleToggle(index)}
+            />
 
-              {editIndex === index ? (
-                <>
-                  <input
-                    type="text"
-                    value={editText}
-                    onChange={(e) => setEditText(e.target.value)}
-                    className="edit-input"
-                  />
-                  <button
-                    onClick={() => handleSaveEdit(index)}
-                    className="save-btn"
-                  >
-                    Save
-                  </button>
-                </>
-              ) : (
-                <>
-                  <span
-                    className={`task-text ${
-                      task.completed ? "completed" : ""
-                    }`}
-                  >
-                    {task.text}
-                  </span>
-                  <button
-                    onClick={() => handleEdit(index, task.text)}
-                    className="edit-btn"
-                  >
-                    Edit
-                  </button>
-                </>
-              )}
+            {editIndex === index ? (
+              <>
+                <input
+                  type="text"
+                  value={editText}
+                  onChange={(e) => setEditText(e.target.value)}
+                  className="edit-input"
+                />
+                <button
+                  onClick={() => handleSaveEdit(index)}
+                  className="save-btn"
+                >
+                  Save
+                </button>
+              </>
+            ) : (
+              <>
+                <span
+                  className={`task-text ${
+                    task.completed ? "completed" : ""
+                  }`}
+                >
+                  {task.text}
+                </span>
+                <button
+                  onClick={() => handleEdit(index, task.text)}
+                  className="edit-btn"
+                >
+                  Edit
+                </button>
+              </>
+            )}
 
-              <br />
-              <small className="task-timestamp">
-                Added: {task.timestamp}
-              </small>
+            <br />
+            <small className="task-timestamp">
+              Added: {task.timestamp}
+            </small>
 
-              <button
-                onClick={() => handleDelete(index)}
-                className="delete-btn"
-              >
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </>
+            <button
+              onClick={() => handleDelete(index)}
+              className="delete-btn"
+            >
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

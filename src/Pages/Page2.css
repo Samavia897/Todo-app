@@ -22,6 +22,22 @@
   box-sizing: border-box;
 }
 
+.task-list {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+.task-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.5);
+  border-radius: 3px;
+}
+
 .task-item {
   margin-bottom: 15px;
   word-wrap: break-word;
@@ -57,13 +73,11 @@
   font-size: 0.85rem;
 }
 
-
 .delete-btn {
   margin-left: 10px;
   color: red;
 }
 
-/* ✅ Mobile Screens (up to 600px) */
 @media (max-width: 600px) {
   .page2-title {
     font-size: 1.5rem;
@@ -93,7 +107,6 @@
   }
 }
 
-/* ✅ Tablets (600px to 1024px) */
 @media (min-width: 601px) and (max-width: 1024px) {
   .task-input {
     max-width: 80%;
